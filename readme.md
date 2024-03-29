@@ -1,5 +1,5 @@
 # EDAN40 Exercises
-In this repo you will find solutions to the exercises given by the book Programming in Haskell Second Edition as part of the course litterature recommended by the course EDAN40 at Lunds Tekniska Högskola. 
+In this repo you will find solutions to the exercises given by the book Programming in Haskell Second Edition as part of the course litterature recommended by the course EDAN40 at Lunds Tekniska Högskola, as well as handpicked exercises from the lecturer. 
 
 > [!NOTE]
 > Note that no solutions to the assignments will be provided, for obvious reasons.
