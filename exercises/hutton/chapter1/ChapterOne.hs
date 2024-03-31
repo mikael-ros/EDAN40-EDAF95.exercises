@@ -32,9 +32,3 @@ module ChapterOne where
                     where
                         smaller = [a | a <- xs, a < x]
                         larger = [b | b <- xs, b > x]
-
-
-    main = do -- This is the part executed after compilation --
-        putStrLn (show (ChapterOne.product [2..4])) -- Show is necessary to print the result --
-        putStrLn (show (qsort [2,5,8,1])) 
-        putStrLn (show (qsortWrong [2,2,3,1,1])) 

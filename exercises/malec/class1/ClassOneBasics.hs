@@ -23,7 +23,30 @@ module ClassOneBasics where
     ----------------------
     -- -- Exercise 3 -- --
     ----------------------
+    hanoi :: Int -> Int
+    hanoi height 
+        | height <= 0 = 0
+        | otherwise = 1 + 2 * hanoi (height-1)
 
-    main = do 
-        putStrLn (show (maxi 5 4)) -- Should give 5
-        putStrLn (show (sumsq 5)) -- Should give 5*5 + 4*4 + 3*3 + 2*2 + 1*1 = 25 + 16 + 9 + 4 + 1 = 55
+    ----------------------
+    -- -- Exercise 4 -- --
+    ----------------------
+
+    nextFactor :: Int -> Int -> Int
+    nextFactor number minFactor  
+        | (number `mod` minFactor) == 0 = minFactor
+        | otherwise = nextFactor number (minFactor+1)
+
+    smallestFactor :: Int -> Int
+    smallestFactor number = nextFactor number 2
+
+    numFactors :: Int -> Int
+    numFactors number = length (removeDuplicates (map (nextFactor number) [2..number]))
+
+    -- Taken from official solutions, since I can't be bothered implementing it --
+    removeDuplicates :: Eq a => [a] -> [a]
+    removeDuplicates [] = []
+    removeDuplicates [x] = [x]
+    removeDuplicates (x:xs)
+        | elem x xs  = removeDuplicates xs
+        | otherwise  = x : removeDuplicates xs
