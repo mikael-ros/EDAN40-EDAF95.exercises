@@ -83,4 +83,18 @@ I defined a method ``hanoi``, receiving the n length of list, which computes tha
 ### 4
 The ``nextFactor`` method should be fed a number and k, which it will find a factor larger than. As such, if we feed it recursively increasing factors k until n = k, we will get all possible factors of a number 
 
-**See the methods ``nextFactor``, ``smallestFactor``, ``numFactors``, in [``ClassOneBasics.hs``](ClassOneBasics.hs)**
+**See the methods ``nextFactor``, ``smallestFactor``, and ``numFactors``, in [``ClassOneBasics.hs``](ClassOneBasics.hs)**
+
+
+### 5
+Theres a couple approaches to this. Either we have a datatype month, containing the months, and a method that either checks the index and returns a set number of days (or from a list of days corresponding to the num month)... or we define monthnames and the set of possible monthlengths, then a month type combining the two. Examples of this, but with cards, can be found on [the Haskell wiki.](https://wiki.haskell.org/Type).
+
+Our early definition of a date only needs then a year and a month. In the official solution, Malec chooses to set ``Month = Integer``, which I will also be doing. Though ideally you could remove the need for checking ``1 <= month <= 12`` if you design your data type such that it can't be out of range anyway.
+
+For the second part we could simply just define year as a short date + the day. Then to check if it's valid we just need to pass the short date into the daysInMonth function.
+
+**See the methods ``daysInMonth`` and ``validDate``, as well as the types ``Month``, ``ShortDate``, and ``Date`` in [``ClassOneBasics.hs``](ClassOneBasics.hs)**
+
+## Lists
+
+### 1

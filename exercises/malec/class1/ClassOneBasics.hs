@@ -50,3 +50,37 @@ module ClassOneBasics where
     removeDuplicates (x:xs)
         | elem x xs  = removeDuplicates xs
         | otherwise  = x : removeDuplicates xs
+    
+    ----------------------
+    -- -- Exercise 5 -- --
+    ----------------------
+
+    type Month = Integer
+    -- Seperated onto lines for readability ^^ --
+
+    monthLengths = [31,28,31,30,31,30,31,31,30,31,30,31]
+
+    data ShortDate = ShortDate {
+        year :: Integer,
+        month :: Month
+    } deriving Show
+    -- An instance is created with ShortDate (year) (month) --
+    -- I defined it to make the code more readable, though I'm not sure if it helped in the end --
+
+    daysInMonth :: ShortDate -> Integer
+    daysInMonth date
+        | month date == 2 && year date `mod` 4 == 0 = monthLengths!! fromInteger (month date - 1) + 1 -- Add 1 when leap year and February --
+        | month date >= 1 && month date <= 12       = monthLengths!! fromInteger (month date - 1)
+        | otherwise = 0 -- When month not in range, don't bother
+    
+    data Date = Date {
+        prefix :: ShortDate,
+        day :: Integer
+    }
+
+    validDate :: Date -> Bool
+    validDate date
+        | day date >= 1 && day date <= daysInMonth (prefix date) = True -- Kind of looks stupid since I defined the daysInMonth from the ShortDate type --
+        | otherwise = False
+    -- This results in the ugly syntax "validDate (Date (ShortDate 2024 04) 32)", which I could fix by overloading but I don't know how at the moment --
+    -- Another solution is to redefine the Date type --
