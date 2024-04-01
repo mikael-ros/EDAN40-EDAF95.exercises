@@ -56,8 +56,7 @@ module ClassOneBasics where
     ----------------------
 
     type Month = Integer
-    -- Seperated onto lines for readability ^^ --
-
+    monthLengths :: [Integer]
     monthLengths = [31,28,31,30,31,30,31,31,30,31,30,31]
 
     data ShortDate = ShortDate {
