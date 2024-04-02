@@ -96,5 +96,22 @@ For the second part we could simply just define year as a short date + the day. 
 **See the methods ``daysInMonth`` and ``validDate``, as well as the types ``Month``, ``ShortDate``, and ``Date`` in [``ClassOneBasics.hs``](ClassOneBasics.hs)**
 
 ## Lists
+> [!NOTE]
+> Most of these ended up being the same as the official solutions. I will be pausing this exercise until I understand the material better.
 
 ### 1
+We want to walk the list in a direction and multiply the prior element with the next, we want to fold.
+
+**See the method ``multiply`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
+
+### 2
+We can't do for loops in Haskell, so our best bet is a recursive function to iterate over a list, in this case a list of characters. 
+
+Note this method works on any list.
+
+**See the method ``substitute`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
+
+### 3
+For this, we can reuse part of our prior solution (not literally), modifying it to return true if a match is found for any of the list elements. We will only need the list itself as a parameter, since we are checking elements in the list.
+
+**See the method ``duplicate`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
