@@ -10,35 +10,14 @@ The sum function applies the + operand for every item in an array, and as such i
 
 ## 3
 
-See [ChapterOne.hs](ChapterOne.hs). Here is the code in plaintext:
-``` haskell
-    product [] = 1 -- Defined for the empty set --
-    product (n:ns) = n * Main.product ns  -- The method that calculates the product --
-
-    productAlt xs = foldl (*) 1 xs  -- Alternative syntax for the same thing --
-```
+**See ``product`` and ``productAlt`` in [ChapterOne.hs](ChapterOne.hs).**
 
 ## 4
-Just reverse the order, see [ChapterOne.hs](ChapterOne.hs). Plaintext:
-``` haskell
-    -- What follows is a straight copy from the book, --
-    -- but with the modifications necessary for reverse order --
-    qsort [] = [] 
-    qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
-                    where
-                        smaller = [a | a <- xs, a >= x]
-                        larger = [b | b <- xs, b < x]
-```
+Just reverse the order.
+
+**See ``qsortReversed`` in [ChapterOne.hs](ChapterOne.hs)**
 
 ## 5
-See [ChapterOne.hs](ChapterOne.hs); Plaintext: 
-``` haskell
-    -- What follows is a straight copy from the book, --
-    -- but with the modifications given (remove = from a <= x) --
-    qsortWrong [] = [] 
-    qsortWrong (x:xs) = qsortWrong smaller ++ [x] ++ qsortWrong larger
-                    where
-                        smaller = [a | a <- xs, a < x]
-                        larger = [b | b <- xs, b > x]
-```
 It only gives unique entries, since equal entries fall out of the ``smaller`` set.
+**See ``qsortWrong`` in [ChapterOne.hs](ChapterOne.hs)**
+

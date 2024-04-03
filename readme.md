@@ -17,14 +17,37 @@ This is a complementary resource to my [Notion notes database](https://mikaelrr.
 
 ### Load module
 ```console
-$ ghci
+ghci
 
-$ GHCi, version 9.2.8: https://www.haskell.org/ghc/  :? for help
-$ ghci > :l file.hs
+GHCi, version 9.2.8: https://www.haskell.org/ghc/  :? for help
+ghci > :l file.hs
 ```
 After which you can run methods defined within the file.
-### Testing with HUnit
-This is experimental, I still haven't gotten this to work. When it does, however, it should be possible to run the tests file with any of the prior methods.
+### Testing
+Some modules have tests included, usually the soltions for the book.
+
+The modules are tested with HUnit, which you can find [here](https://hackage.haskell.org/package/HUnit). A guide can be found [here](https://wiki.haskell.org/HUnit_1.0_User%27s_Guide).
+#### Stack
+1. Install [Stack](https://docs.haskellstack.org/en/stable/), if not present
+2. Run the following: in your terminal (not GHCi)
+```console
+stack install HUnit
+```
+> [!NOTE]
+> You can probably use cabal, but I found Stack to be easier.
+#### Executing tests
+Tests are run by running 
+```haskell
+ghci> :l <testsmodule>
+ghci> runTestTT <testlist>
+```
+Where ``<testsmodule>`` is the module containing the tests and ``<testlist>`` is any lists of tests currently loaded. I try to name them in UpperCamelCase and lowerCamelCase with the same name in general.
+
+This should then return something like (if the tests pass):
+```console
+Cases: 4  Tried: 4  Errors: 0  Failures: 0
+Counts {cases = 4, tried = 4, errors = 0, failures = 0}
+```
 
 ---
 > [!CAUTION]

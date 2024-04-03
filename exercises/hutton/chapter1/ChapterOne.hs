@@ -14,9 +14,9 @@ module ChapterOne where
     ----------------------
     -- What follows is a straight copy from the book, --
     -- but with the modifications necessary for reverse order --
-    qsort :: Ord a => [a] -> [a]
-    qsort [] = [] 
-    qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
+    qsortReversed :: Ord a => [a] -> [a]
+    qsortReversed [] = [] 
+    qsortReversed (x:xs) = qsortReversed smaller ++ [x] ++ qsortReversed larger
                     where
                         smaller = [a | a <- xs, a >= x]
                         larger = [b | b <- xs, b < x]
