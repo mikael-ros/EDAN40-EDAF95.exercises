@@ -1,5 +1,4 @@
 module TestsChapterOne where
-    -- This file does not currently compile --
     import Test.HUnit
     import ChapterOne
 
