@@ -49,6 +49,9 @@ Cases: 4  Tried: 4  Errors: 0  Failures: 0
 Counts {cases = 4, tried = 4, errors = 0, failures = 0}
 ```
 
+> [!NOTE]
+> Don't forget to reload the test module in ghci when changing methods in the source file
+
 ---
 > [!CAUTION]
 > For possible copyright infringement reasons, I will not provide the actual exercise headings, atleast not in entirety. You should own a legal copy of the book to use this repository.
