@@ -35,3 +35,25 @@ module ChapterFour where
 
     safetailPattern :: [a] -> [a]
     safetailPattern (_:es) = es -- This works regardless of length, I think
+
+    ----------------------
+    -- -- Exercise 5 -- --
+    ----------------------
+    and' :: Bool -> Bool -> Bool
+    and' a b =    if a then
+                        if b then
+                            True
+                        else
+                            False
+                    else
+                        False
+    
+    ----------------------
+    -- -- Exercise 6 -- --
+    ----------------------
+    and'' :: Bool -> Bool -> Bool
+    and'' a b =     if b then
+                        True
+                    else
+                        False
+    

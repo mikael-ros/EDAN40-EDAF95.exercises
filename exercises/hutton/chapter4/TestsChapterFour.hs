@@ -13,6 +13,8 @@ module TestsChapterFour where
     testChapterFourExercise3Guard = TestCase (assertEqual "for safetailCond [1,2,3,4,5,6]" [2,3,4,5,6] (safetailGuard [1,2,3,4,5,6]))
     testChapterFourExercise3Pattern = TestCase (assertEqual "for safetailCond [1,2,3,4,5,6]" [2,3,4,5,6] (safetailPattern [1,2,3,4,5,6]))
 
+    testChapterFourExercise5 = TestCase (assertEqual "for andAnd True && True" True (and' True True))
+
     testsChapterFour = TestList [
         TestLabel "testChapterFourExercise1" testChapterFourExercise1,
         TestLabel "testChapterFourExercise2Head" testChapterFourExercise2Head,
@@ -20,5 +22,6 @@ module TestsChapterFour where
         TestLabel "testChapterFourExercise2Pattern" testChapterFourExercise2Pattern,
         TestLabel "testChapterFourExercise3Cond" testChapterFourExercise3Cond,
         TestLabel "testChapterFourExercise3Guard" testChapterFourExercise3Guard,
-        TestLabel "testChapterFourExercise3Pattern" testChapterFourExercise3Pattern
+        TestLabel "testChapterFourExercise3Pattern" testChapterFourExercise3Pattern,
+        TestLabel "testChapterFourExercise5" testChapterFourExercise5
                                 ]
