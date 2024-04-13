@@ -40,20 +40,45 @@ module ChapterFour where
     -- -- Exercise 5 -- --
     ----------------------
     and' :: Bool -> Bool -> Bool
-    and' a b =    if a then
+    and' a b =      if a then
                         if b then
+                            True
+                        else
+                            False
+                    else if b then
+                        if a then
                             True
                         else
                             False
                     else
                         False
-    
+                            
     ----------------------
     -- -- Exercise 6 -- --
     ----------------------
     and'' :: Bool -> Bool -> Bool
-    and'' a b =     if b then
-                        True
-                    else
-                        False
+    and'' a b =    if a then
+                            if b then
+                                True
+                            else
+                                False
+                        else
+                            False
+
+    ----------------------
+    -- -- Exercise 7 -- --
+    ----------------------
+    multLambda :: (Int -> (Int -> (Int -> Int)))
+    multLambda = \x -> (\y -> (\z -> x*y*z))
+
+    ----------------------
+    -- -- Exercise 8 -- --
+    ----------------------
+    luhnDouble :: Int -> Int
+    luhnDouble digit
+        | digit*2 > 9 = digit*2 - 9
+        | otherwise = digit*2
+
+    luhn :: Int -> Int -> Int -> Int -> Bool
+    luhn a b c d = (luhnDouble a + b + luhnDouble c + d) `mod` 10 == 0
     

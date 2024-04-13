@@ -18,7 +18,7 @@ This ones trivial.
 ### Using pattern matching
 This should be something like ``(_:_:e:_)``. We can't check the length here I think, but it should be okay?
 
-**See ``thirdHead``, ``thirdIndex``, ``thirdPattern`` in [``ChapterFour.hs``](ChapterFour.hs)**
+**See ``thirdHead``, ``thirdIndex``, and ``thirdPattern`` in [``ChapterFour.hs``](ChapterFour.hs)**
 
 ## 3
 
@@ -31,4 +31,32 @@ Same as conditional, just guards.
 ### Using pattern matching
 We can match everything but the first element.
 
-**See ``safetailCond``, ``safetailGuard``, ``safetailPattern`` in [``ChapterFour.hs``](ChapterFour.hs)**
+**See ``safetailCond``, ``safetailGuard``, and ``safetailPattern`` in [``ChapterFour.hs``](ChapterFour.hs)**
+
+## 4
+
+```haskell
+True || True -- = True
+True || False -- = True
+False || True -- = True
+False || False -- = False
+```
+
+## 5
+Note the assignment here is to make the ineffecient version, hence the ugly code!
+
+**See ``and'`` in [``ChapterFour.hs``](ChapterFour.hs)**
+
+## 6
+It clearly has less conditional statements, since we skip checking the second statement if the first is false.
+
+**See ``and''`` in [``ChapterFour.hs``](ChapterFour.hs)**
+
+## 7
+By seeing the signature as ``(Int -> (Int -> (Int -> Int)))``, with ``multLambda = \x -> (\y -> (\z -> x*y*z))``
+
+**See ``multLambda`` in [``ChapterFour.hs``](ChapterFour.hs)**
+
+## 8
+
+**See ``luhnDouble`` and ``luhn`` in [``ChapterFour.hs``](ChapterFour.hs)**
