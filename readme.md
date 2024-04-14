@@ -60,7 +60,7 @@ Counts {cases = 4, tried = 4, errors = 0, failures = 0}
 ## Contributing
 Feel free to contribute small fixes or optimizations to any code. I will likely accept pull requests if they are limited in scope or if they provide solutions for exercises I have chosen not to do. Pull requests containing code that is vastly different from mine, using methods I don't understand or that are poorly documented will not be accepted. Similarly any type of plagiarism is not welcome.
 
-Generally I try to stick to methods discussed in a module or chapter when solving the exercises for that module/chapter even if I have progressed further, as to not confuse others - please try to adhere to this as well :) 
+Generally I try to stick to methods discussed in a module or chapter when solving the exercises for that module/chapter even if I have progressed further, as to not confuse others - please try to adhere to this as well :) For the same reason, I don't provide point free solutions for the book*.
 
 ---
 > [!CAUTION]
