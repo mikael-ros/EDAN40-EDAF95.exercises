@@ -35,4 +35,11 @@ Perfects similarly generates a list of numbers ``[1..n]`` with the requirement `
 **See ``factors`` and ``perfects`` in [``ChapterFive.hs``](ChapterFive.hs)**
 
 ## 7 
-We just need to generate them seperately and concatenate them like suggested.
+If we run the original comprehension, the output is:
+``[[(1,3),(2,3),(1,4),(2,4)]]`` 
+
+I honestly don't actually quite understand nested comprehensions. I got my code partly from the [Haskell wiki](https://wiki.haskell.org/List_comprehension). 
+
+**See ``seperateGenerators`` in [``ChapterFive.hs``](ChapterFive.hs)**
+
+## 8

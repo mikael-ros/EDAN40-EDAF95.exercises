@@ -41,6 +41,11 @@ module ChapterFive where
     ----------------------
     -- -- Exercise 7 -- --
     ----------------------
-    -- This doesn't work yet --
-    seperateGenerators :: [Integer]
-    seperateGenerators = concat [[x,y] | x <- [1,2], y <- [y | y <- [3,4]]]
+    seperateGenerators :: [(Integer,Integer)]
+    seperateGenerators =  concat [ [ (x, y) | x <- [1,2] ] | y <- [3,4] ]
+
+    ----------------------
+    -- -- Exercise 8 -- --
+    ----------------------
+    positionsFind :: a -> [a] -> [Int]
+    positionsFind query list = --

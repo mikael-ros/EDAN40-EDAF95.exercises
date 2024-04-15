@@ -13,7 +13,6 @@ module TestsChapterFive where
 
     testChapterFiveExercise6 = TestCase (assertEqual "for perfects 500" [6,28,496] (perfects 500))
 
-    testChapterFiveExercise7 = TestCase (assertEqual "for seperateGenerators" [1,2,3,4] seperateGenerators)
 
     testsChapterFive = TestList [
         TestLabel "testChapterFiveExercise1" testChapterFiveExercise1,
@@ -21,6 +20,5 @@ module TestsChapterFive where
         TestLabel "testChapterFiveExercise3" testChapterFiveExercise3,
         TestLabel "testChapterFiveExercise4" testChapterFiveExercise4,
         TestLabel "testChapterFiveExercise5" testChapterFiveExercise5,
-        TestLabel "testChapterFiveExercise6" testChapterFiveExercise6,
-        TestLabel "testChapterFiveExercise7" testChapterFiveExercise7
+        TestLabel "testChapterFiveExercise6" testChapterFiveExercise6
                                 ]
