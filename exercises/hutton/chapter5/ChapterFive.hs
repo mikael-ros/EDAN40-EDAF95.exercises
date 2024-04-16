@@ -47,5 +47,14 @@ module ChapterFive where
     ----------------------
     -- -- Exercise 8 -- --
     ----------------------
-    positionsFind :: a -> [a] -> [Int]
-    positionsFind query list = --
+    find :: Eq a => a -> [(a,b)] -> [b]
+    find k t = [v | (k',v) <- t, k == k'] -- Taken from the definition on page 49
+
+    positionsFind :: Eq a => a -> [a] -> [Int]
+    positionsFind query list = find query [(element,index) | (element,index) <- zip list [0..]]
+
+    ----------------------
+    -- -- Exercise 9 -- --
+    ----------------------
+    scalarProduct :: Num a => [a] -> [a] -> a
+    scalarProduct vectorOne vectorTwo = sum [v1 * v2 | (v1,v2) <- zip vectorOne vectorTwo]

@@ -43,3 +43,14 @@ I honestly don't actually quite understand nested comprehensions. I got my code 
 **See ``seperateGenerators`` in [``ChapterFive.hs``](ChapterFive.hs)**
 
 ## 8
+We essentially need to cut out the requirement and instead let find "filter" it.
+
+**See ``find`` and ``positionsFind`` in [``ChapterFive.hs``](ChapterFive.hs)**
+
+## 9 
+We just need to combine the lists and multiply each pair of elements.
+
+**See ``scalarProduct`` in [``ChapterFive.hs``](ChapterFive.hs)**
+
+## 10
+Can't be bothered.

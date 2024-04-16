@@ -13,6 +13,9 @@ module TestsChapterFive where
 
     testChapterFiveExercise6 = TestCase (assertEqual "for perfects 500" [6,28,496] (perfects 500))
 
+    testChapterFiveExercise8 = TestCase (assertEqual "for positionsFind False [True,False,True,False]" [1,3] (positionsFind False [True,False,True,False]))
+
+    testChapterFiveExercise9 = TestCase (assertEqual "for scalarProduct [1,2,3] [4,5,6]" 32 (scalarProduct [1,2,3] [4,5,6]))
 
     testsChapterFive = TestList [
         TestLabel "testChapterFiveExercise1" testChapterFiveExercise1,
@@ -20,5 +23,7 @@ module TestsChapterFive where
         TestLabel "testChapterFiveExercise3" testChapterFiveExercise3,
         TestLabel "testChapterFiveExercise4" testChapterFiveExercise4,
         TestLabel "testChapterFiveExercise5" testChapterFiveExercise5,
-        TestLabel "testChapterFiveExercise6" testChapterFiveExercise6
+        TestLabel "testChapterFiveExercise6" testChapterFiveExercise6,
+        TestLabel "testChapterFiveExercise8" testChapterFiveExercise8,
+        TestLabel "testChapterFiveExercise9" testChapterFiveExercise9
                                 ]
