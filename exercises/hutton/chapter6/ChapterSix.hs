@@ -73,3 +73,39 @@ module ChapterSix where
     ----------------------
     -- -- Exercise 7 -- --
     ----------------------
+    merge :: Ord a => [a] -> [a] -> [a]
+    merge [] ys = ys
+    merge xs [] = xs
+    merge (x:xs) (y:ys)
+        | x <= y = x : merge xs (y:ys) -- If x is smaller, move it to the front and merge with the remainder of xs and full ys
+        | otherwise = y : merge (x:xs) ys
+
+    halve :: [a] -> ([a],[a])
+    halve list = (Prelude.take (length list `div` 2) list, drop (length list `div` 2) list) -- This is ugly, could use splitAt, but feels like cheating?
+
+    msort :: Ord a => [a] -> [a]
+    msort [] = [] -- Empty list case
+    msort [x] = [x] -- Singleton list case
+    msort list = merge (msort left) (msort right)
+        where (left,right) = halve list
+
+    ----------------------
+    -- -- Exercise 8 -- --
+    ----------------------
+    -- Do note I prefer to, whenever possible, define all cases in the function, as I find it more readable
+    sum :: Num a => [a] -> a
+    sum (number:numbers)
+        | null (number:numbers) = 0 -- "empty list = 0"
+        | null numbers = number     -- "singletone = sole element"
+        | otherwise = number + ChapterSix.sum numbers -- "recursive addition with rest of list"
+
+    take :: Int -> [a] -> [a]
+    take n (x:xs) 
+        | n == 0 || null (x:xs) = [] -- "Number of elements taken 0, or list is empty"
+        | n >= length (x:xs) = x:xs -- "Number of elements taken larger than or equal to list length"
+        | otherwise = x : ChapterSix.take (n-1) xs 
+
+    last :: [a] -> a
+    last (x:xs)
+        | null xs = x -- "Singleton = the sole element"
+        | otherwise = ChapterSix.last xs

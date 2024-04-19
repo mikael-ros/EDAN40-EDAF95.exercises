@@ -16,6 +16,14 @@ module TestsChapterSix where
     testChapterSixExercise6elem = TestCase (assertEqual "for elem 2 [1,2,3]" True (ChapterSix.elem 2 [1,2,3]))
     testChapterSixExercise6elem2 = TestCase (assertEqual "for elem 4 [1,2,3]" False (ChapterSix.elem 4 [1,2,3]))
 
+    testChapterSixExercise7merge = TestCase (assertEqual "for merge [2,5,6] [1,3,4]" [1,2,3,4,5,6] (merge [2,5,6] [1,3,4]))
+    testChapterSixExercise7halve = TestCase (assertEqual "for halve [1,2,3,4]" ([1,2],[3,4]) (halve [1,2,3,4]))
+    testChapterSixExercise7msort = TestCase (assertEqual "for msort [2,5,3,4,1,6]" [1,2,3,4,5,6] (msort [2,5,3,4,1,6]))
+
+    testChapterSixExercise8sum = TestCase (assertEqual "for sum [1,2,3]" 6 (ChapterSix.sum [1,2,3]))
+    testChapterSixExercise8take = TestCase (assertEqual "for take 2 [1,2,3]" [1,2] (ChapterSix.take 2 [1,2,3]))
+    testChapterSixExercise8last = TestCase (assertEqual "for last [1,2,3]" 3 (ChapterSix.last [1,2,3]))
+
 
     testsChapterSix = TestList [
         TestLabel "testChapterSixExercise1" testChapterSixExercise1,
@@ -28,5 +36,11 @@ module TestsChapterSix where
         TestLabel "testChapterSixExercise6replicate" testChapterSixExercise6replicate,
         TestLabel "testChapterSixExercise6get" testChapterSixExercise6get,
         TestLabel "testChapterSixExercise6elem" testChapterSixExercise6elem,
-        TestLabel "testChapterSixExercise6elem2" testChapterSixExercise6elem2
+        TestLabel "testChapterSixExercise6elem2" testChapterSixExercise6elem2,
+        TestLabel "testChapterSixExercise7merge" testChapterSixExercise7merge,
+        TestLabel "testChapterSixExercise7halve" testChapterSixExercise7halve,
+        TestLabel "testChapterSixExercise7msort" testChapterSixExercise7msort,
+        TestLabel "testChapterSixExercise8sum" testChapterSixExercise8sum,
+        TestLabel "testChapterSixExercise8take" testChapterSixExercise8take,
+        TestLabel "testChapterSixExercise8last" testChapterSixExercise8last
                                 ]

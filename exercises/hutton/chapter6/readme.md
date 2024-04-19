@@ -75,5 +75,43 @@ Here we can iterate through the list, returning true when an element is found. W
 **See ``and``, ``concat``, ``replicate``, ``!!`` and ``elem`` in [``ChapterSix.hs``](ChapterSix.hs)**
 
 ## 7
+Since the lists are sorted, we can assume that in each list the head is the smallest element, and as such we can recursively compare heads to sort them together.
 
+**See ``merge`` in [``ChapterSix.hs``](ChapterSix.hs)**
 
+## 8
+
+Halve just needs to be a function returning the take and drop of the same length, I think. Preferrably with a floor and roof, or something.
+
+The msort function is just classic mergesort, using the defined merge function.
+
+**See ``msort`` in [``ChapterSix.hs``](ChapterSix.hs)**
+
+## 9
+_The 5 step method boils down to defining the type of function, then conjuring all the cases, defining the easy cases first and simpler last. Last step is refactoring._
+### sum
+The type of this function should be ``Num a => [a] -> a``
+
+The possible cases would be:
+- empty list = 0
+- singleton list = the sole element
+- any other list = recursive addition with rest of list, until singleton is reached
+
+### take
+The type of this function should be ``Int -> [a] -> [a]``
+
+The possible cases would be:
+- the number of elements taken 0 = empty list
+- list is empty = empty list
+- the number of elements is larger or equal to list length = whole list
+- otherwise = concat head with take n-1 rest of list
+
+### last
+The type of this function should be ``[a] -> a``
+
+The possible cases would be:
+- list is empty = undefined
+- singleton = the sole element
+- any other list = call the last function with everything but the head
+
+**See ``sum``, ``take`` and ``last`` in [``ChapterSix.hs``](ChapterSix.hs)**
