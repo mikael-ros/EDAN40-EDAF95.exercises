@@ -1,4 +1,4 @@
-# Chapter 5
+# Chapter 6
 ## 1
 It never reaches the base case, and iterates downward for infinity. To fix it we simply just need to prohibit negative inputs, like suggested.
 
