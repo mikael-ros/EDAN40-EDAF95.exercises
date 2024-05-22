@@ -105,9 +105,7 @@ We want to walk the list in a direction and multiply the prior element with the 
 **See the method ``multiply`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
 
 ### 2
-We can't do for loops in Haskell, so our best bet is a recursive function to iterate over a list, in this case a list of characters. 
-
-Note this method works on any list.
+We can't do for loops in Haskell, so our best bet is a recursive function to iterate over a list, or map.
 
 **See the method ``substitute`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
 
@@ -115,3 +113,38 @@ Note this method works on any list.
 For this, we can reuse part of our prior solution (not literally), modifying it to return true if a match is found for any of the list elements. We will only need the list itself as a parameter, since we are checking elements in the list.
 
 **See the method ``duplicates`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
+
+### 4
+> [!WARNING]
+> From this point on, exercise solution are done from a much more future perspective. I won't try to define any unnecessarily advanced methods though. Please contribute any solution you find more apt for this experience level, if you come across something too advanced.
+
+``pairs`` creates all possible pairs between the two lists xs and ys, otherwise called the cartesian product.
+
+``triads`` can easily be defined like pairs, but with the requirement that ``x^2 + y^2 = z^2``. We also need to fit the requirement that ``x <= y <= z <= n``, which is the same as creating three list generators with increasing lower bounds.
+
+**See the method ``triads`` and ``pairs``in [``ClassOneLists.hs``](ClassOneLists.hs)**
+
+### 5
+This could be defined several ways. One way is recursion over the lists, which is probably the easiest to define. It is however true, that if we execute the pairs like ``pairs xs xs`` and compare that to ``pairs ys ys`` it should, if they are permutations, return the same pairs. This is not as simple as ``==``. Another way to implement this then, is to see if all pairs of ``pairs xs xs`` also are elements ``elem`` of ``pairs ys ys``.
+
+**See the method ``isPermutation`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
+
+### 6
+We can define a recursive helper method that modifies a pair (shortest, longest). We feed one word at a time, and modify the pair depending on wheter a word w is:
+1. Shorter => pair = (w,longest)
+2. Longer => pair = (shortest,w)
+
+If there are no more words (``null words``) we return the current pair, otherwise we continue iterating if we found no new candidate.
+
+**See the method ``shortestAndLongest`` and ``snlHelper`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
+
+### 7
+It seems to disassemble the list:
+
+``map (\y -> [y]) xs`` (iterates all elements of x and gives singleton lists of each element)
+
+Then it folds the concat ``++`` operator, assembling them again. The direction here is foldr, but the direction does not matter here.
+
+TL:DR; the "mystery" function disassembles and reassembles a list.
+
+**See the method ``mystery`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
