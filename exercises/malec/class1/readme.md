@@ -114,4 +114,4 @@ Note this method works on any list.
 ### 3
 For this, we can reuse part of our prior solution (not literally), modifying it to return true if a match is found for any of the list elements. We will only need the list itself as a parameter, since we are checking elements in the list.
 
-**See the method ``duplicate`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
+**See the method ``duplicates`` in [``ClassOneLists.hs``](ClassOneLists.hs)**
