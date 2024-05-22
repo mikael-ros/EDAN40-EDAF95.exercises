@@ -45,6 +45,12 @@ Tests are run by running
 ghci> :l <testsmodule>
 ghci> runTestTT <testlist>
 ```
+In some cases I have also defined a main method, which allows you to run the lests like (or similar):
+```haskell
+ghci> :l <testsmodule>
+ghci> main
+```
+
 Where ``<testsmodule>`` is the module containing the tests and ``<testlist>`` is any lists of tests currently loaded. I try to name them in UpperCamelCase and lowerCamelCase with the same name in general.
 
 This should then return something like (if the tests pass):
@@ -54,7 +60,7 @@ Counts {cases = 4, tried = 4, errors = 0, failures = 0}
 ```
 
 > [!NOTE]
-> Don't forget to reload the test module in ghci when changing methods in the source file
+> Don't forget to reload (``:r`` in ghci) the test module in ghci when changing methods in the source file
 
 ---
 ## Contributing
