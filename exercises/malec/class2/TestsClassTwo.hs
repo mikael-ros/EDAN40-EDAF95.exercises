@@ -1,13 +1,17 @@
 module TestsClassTwo where
     import Test.HUnit
-    import ClassTwo
+    import ClassTwoLogic
 
-    testClassTwoExercise1 = 0 ~?= 0
+    testClassTwoLogicExercise1 = 0 ~?= 0
+
+    testsClassTwoLogic = TestList [
+        testClassTwoLogicExercise1
+                            ]
 
     ------------------------------------------------------------------------------------
 
     testsClassTwo = TestList [
-        testClassTwoExercise1
+        testClassTwoLogic
                             ]
 
     main = runTestTT testsClassTwo

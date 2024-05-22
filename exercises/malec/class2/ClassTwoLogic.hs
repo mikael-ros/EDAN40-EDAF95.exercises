@@ -1,4 +1,4 @@
-module ClassTwo where
+module ClassTwoLogic where
     ----------------------
     -- -- Exercise 1 -- --
     ----------------------

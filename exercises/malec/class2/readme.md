@@ -1,5 +1,6 @@
 # Class 2
 
-## 1
+## Propositional Logic
+### 1
 
-**See the method ``_`` in [``ClassTwo.hs``](ClassTwo.hs)**
+**See the method ``_`` in [``ClassTwoLogic.hs``](ClassTwoLogic.hs)**
