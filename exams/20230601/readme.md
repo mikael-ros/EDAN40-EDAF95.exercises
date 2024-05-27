@@ -45,7 +45,7 @@ Now, the ``$`` operator has the type ``(a -> b) -> a -> b``, as it's first param
 ``((a -> b1) -> a -> b1) -> a -> b2``, where b1 and b2 are two different possible types of output.
 
 ### ``(. (.))``
-> [!WARN]
+> [!WARNING]
 > This part is incomplete, will get back to this another time.
 
 The ``(.)`` operator is the union operator, and essentially puts one function inside the other. An union can only be done, as is the case in mathematics, when the output type of one function is the same as the other functions input. This gives the type signature ``(b -> c) -> (a -> b) -> (a -> c)``. 
