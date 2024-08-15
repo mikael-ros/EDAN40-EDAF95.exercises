@@ -56,3 +56,17 @@ module ClassTwo where
     ----------------------
     -- -- Exercise 1 -- --
     ----------------------
+    data File = File String | Directory String [File]
+        deriving (Eq, Show)
+    type Path = [String]
+
+    ----------------------
+    -- -- Exercise 2 -- --
+    ----------------------
+    search :: String -> Path -> File -> Maybe Path
+    search query path (File fileName) 
+        | fileName == query = Just (path++[fileName])
+        | otherwise = Nothing
+    search query path (Directory dirName files)
+        | dirName == query = Just (path++[dirName])
+        | otherwise = head (filter isJust (map (search query (path++[dirName])) files)++[Nothing]) -- Nothing will be head if there are no "Justs"

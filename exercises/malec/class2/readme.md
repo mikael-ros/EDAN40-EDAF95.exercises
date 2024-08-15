@@ -39,3 +39,13 @@ We can thereafter use the ``and`` function, which checks if every element of a l
 
 ## File Systems
 ### 1
+A file could be defined as having a name, and containing another file or a directory. In our case this is best defined as either being a ``File`` containing a ``String`` (name) or a ``Directory`` containing a ``String`` (name). A directory could itself be a synonym for a list of files ``[File]``.
+
+A file system is for me seen as a root file that we navigate from.
+
+**See the types ``File`` and ``Directory`` in [``ClassTwo.hs``](ClassTwo.hs)**
+
+### 2
+Theres perhaps two approaches to this. Either we do some form of BFS or DFS algorithm with backtracking, or we simply create a function that generates all paths to all files, and simply searches for any path where ``x`` is at the end.
+
+I will be implementing something akin to BFS, maybe actually BFS (honestly not sure and don't care about proving). I will be searching each layer for the file, returning ``Nothing`` when the file doesn't match and ``Just path`` when it finds it. Each recursive step attaches one new layer to the array of filenames (called a path). This doesn't return a string like file/file2/file3, but an array of strings ``["file", "file2", "file3"]``.

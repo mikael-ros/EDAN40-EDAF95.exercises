@@ -7,6 +7,14 @@ module TestsClassTwo where
         ("bobby", False)
         ]
 
+    -- https://www.youtube.com/watch?v=aYIAynSM7ZI
+    testFileSystem = Directory "blink-182" [
+        File "Spongebob",
+        Directory "Patrick" [Directory "Squidward" [File "Sandy"]],
+        File "Larry",
+        Directory "Pearl" [Directory "Mr.Krabs" [File "Plankton"]]
+        ]
+
     testsClassTwoLogic = TestList [
         vars (Variable "jimmy") ~?= ["jimmy"],
         vars (Variable "jimmy" :/\: Variable "bobby") ~?= ["jimmy", "bobby"],
@@ -21,6 +29,9 @@ module TestsClassTwo where
         tautology (Not (Variable "bobby")) ~?= False,
         tautology (Variable "jimmy" :\/: Not(Variable "jimmy")) ~?= True,
         tautology (Variable "bobby" :/\: Variable "jimmy") ~?= False,
+        search "Spongebob" [] testFileSystem ~?= Just ["blink-182","Spongebob"],
+        search "Plankton" [] testFileSystem ~?= Just ["blink-182","Pearl","Mr.Krabs","Plankton"],
+        search "Gary" [] testFileSystem ~?= Nothing
         ]
 
     ------------------------------------------------------------------------------------
