@@ -70,3 +70,35 @@ module ClassTwo where
     search query path (Directory dirName files)
         | dirName == query = Just (path++[dirName])
         | otherwise = head (filter isJust (map (search query (path++[dirName])) files)++[Nothing]) -- Nothing will be head if there are no "Justs"
+
+    printPath :: Path -> String
+    printPath = foldr1 (\path file -> path++"/"++file)
+    
+    ----------------------------
+    -- || -- -- Sets -- -- || --
+    ----------------------------
+
+    ----------------------
+    -- -- Exercise 1 -- --
+    ----------------------
+    data Set t = Set [t]
+        deriving (Show)
+
+        
+
+    emptySet :: Set t
+    emptySet = Set []
+
+    listToSet :: Eq t => [t] -> Set t
+    listToSet list = Set (removeDuplicates list)
+
+    removeDuplicates :: Eq t => [t] -> [t]
+    removeDuplicates [] = []
+    removeDuplicates [e] = [e]
+    removeDuplicates (l:ls) = l:filter (/= l) (removeDuplicates ls)
+
+    union :: Set t -> Set t -> Set t 
+    union s1 s2 = Set (s1 ++ s2)
+
+    setHas :: Eq t => t -> Set t -> Bool
+    setHas query s = s includes query

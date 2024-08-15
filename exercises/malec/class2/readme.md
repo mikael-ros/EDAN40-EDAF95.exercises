@@ -48,4 +48,16 @@ A file system is for me seen as a root file that we navigate from.
 ### 2
 Theres perhaps two approaches to this. Either we do some form of BFS or DFS algorithm with backtracking, or we simply create a function that generates all paths to all files, and simply searches for any path where ``x`` is at the end.
 
-I will be implementing something akin to BFS, maybe actually BFS (honestly not sure and don't care about proving). I will be searching each layer for the file, returning ``Nothing`` when the file doesn't match and ``Just path`` when it finds it. Each recursive step attaches one new layer to the array of filenames (called a path). This doesn't return a string like file/file2/file3, but an array of strings ``["file", "file2", "file3"]``.
+I will be implementing something akin to BFS, maybe actually BFS (honestly not sure and don't care about proving). I will be searching each layer for the file, returning ``Nothing`` when the file doesn't match and ``Just path`` when it finds it. Each recursive step attaches one new layer to the array of filenames (called a path). This doesn't return a string like file/file2/file3, but an array of strings ``["file", "file2", "file3"]`` that could be turned into the desired path string with some other function.
+
+**See the functions ``search`` and ``printPath`` in [``ClassTwo.hs``](ClassTwo.hs)**
+
+## Sets
+### 1
+We'll use a list internally as suggested. 
+
+#### Empty set
+We'll just create a ``Set`` with the empty list ``[]``.
+
+#### Creating sets
+I assume they mean creating ones from a list, since we already have the empty set constructor. To adhere to set rules, we have to just remove the duplicates from the list, and pass that onto the constructor.

@@ -28,16 +28,25 @@ module TestsClassTwo where
         tautology (Variable "jimmy") ~?= False,
         tautology (Not (Variable "bobby")) ~?= False,
         tautology (Variable "jimmy" :\/: Not(Variable "jimmy")) ~?= True,
-        tautology (Variable "bobby" :/\: Variable "jimmy") ~?= False,
-        search "Spongebob" [] testFileSystem ~?= Just ["blink-182","Spongebob"],
-        search "Plankton" [] testFileSystem ~?= Just ["blink-182","Pearl","Mr.Krabs","Plankton"],
-        search "Gary" [] testFileSystem ~?= Nothing
+        tautology (Variable "bobby" :/\: Variable "jimmy") ~?= False
         ]
 
+    testsClassTwoFiles = TestList [
+        search "Spongebob" [] testFileSystem ~?= Just ["blink-182","Spongebob"],
+        search "Plankton" [] testFileSystem ~?= Just ["blink-182","Pearl","Mr.Krabs","Plankton"],
+        search "Gary" [] testFileSystem ~?= Nothing,
+        printPath ["blink-182","Pearl","Mr.Krabs","Plankton"] ~?= "blink-182/Pearl/Mr.Krabs/Plankton"
+        ]
+
+    testsClassTwoSets = TestList [
+        
+        ]    
     ------------------------------------------------------------------------------------
 
     testsClassTwo = TestList [
-        testsClassTwoLogic
+        testsClassTwoLogic,
+        testsClassTwoFiles,
+        testsClassTwoSets
                             ]
 
     main = runTestTT testsClassTwo
