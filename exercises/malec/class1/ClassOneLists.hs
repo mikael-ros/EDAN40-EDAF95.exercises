@@ -10,7 +10,7 @@ module ClassOneLists where
     ----------------------
     substitute :: Eq character => character -> character -> [character] -> [character]
     substitute _ _ [] = []
-    substitute toreplace replacer string = map (\letter -> if letter == toreplace then replacer else letter) string
+    substitute toreplace replacer string = map (\letter -> if letter == toreplace then replacer else letter) string
 
     ----------------------
     -- -- Exercise 3 -- --
