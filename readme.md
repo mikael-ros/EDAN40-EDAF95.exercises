@@ -30,7 +30,7 @@ ghci > :l file.hs
 ```
 After which you can run methods defined within the file.
 ### Testing
-Some modules have tests included, usually the soltions for the book.
+Some modules have tests included, usually the solutions for the book.
 
 The modules are tested with HUnit, which you can find [here](https://hackage.haskell.org/package/HUnit). A guide can be found [here](https://wiki.haskell.org/HUnit_1.0_User%27s_Guide).
 #### Stack
