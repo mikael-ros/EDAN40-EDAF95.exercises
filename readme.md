@@ -18,6 +18,8 @@ This is a complementary resource to my [Notion notes database](https://mikaelrr.
 
 ---
 ## Usage
+> [!TIP]
+> Another way to use this repo is to create a fork, then remove all my solutions (either all at once, or as you go). Then you'll be left with test cases that, as long as you preserve my naming conventions, can be used to test your solutions as you go.
 
 ### Load module
 ```console
