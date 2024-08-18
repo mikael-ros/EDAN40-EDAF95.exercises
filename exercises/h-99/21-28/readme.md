@@ -1,5 +1,5 @@
-# H-99 questions 11-20 :: "Lists again"
-_as they were on the 17th of August 2024_
+# H-99 questions 21-28 :: "Lists again"
+_as they were on the 17-18th of August 2024_
 
 ## 21
 Should be as simple as concatenating ``take (n-1)`` with the inserted element and ``drop (n-1)``.
