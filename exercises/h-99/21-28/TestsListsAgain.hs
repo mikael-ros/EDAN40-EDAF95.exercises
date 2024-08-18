@@ -22,11 +22,28 @@ module TestsListsAgain where
         randomList <- diffSelect 6 49
         assertEqual "Length of list should be 6" 6 (length randomList) -- again, cant test more than length really
 
+    testExercise25 = TestCase $ do
+        randomPermutation <- rndPermu "abcdef"
+        assertEqual "List should be different" True (randomPermutation /= "abcdef") -- again, cant test more than length really
+    
+    testExercise26 = length (combinations 3 "abcdef") ~?= 20 
+
+    --testExercise27 = length (group [2,2,5] ["aldo","beat","carla","david","evi","flip","gary","hugo","ida"]) ~?= 756 (uncomment this if you have completed exercise 27)
+
+    testsExercise28 = TestList [
+        lsort ["abc","de","fgh","de","ijkl","mn","o"] ~?= ["o","de","de","mn","abc","fgh","ijkl"],
+        lfsort ["abc", "de", "fgh", "de", "ijkl", "mn", "o"] ~?= ["ijkl","o","abc","fgh","de","de","mn"]
+        ]
+
     testsListsAgain = TestList [
         testExercise21,
         testExercise22,
         testsExercise23,
-        testExercise24
+        testExercise24,
+        testExercise25,
+        testExercise26{-,
+        testExercise27 uncomment this too! -},
+        testsExercise28
         ]    
 
     main = runTestTT testsListsAgain

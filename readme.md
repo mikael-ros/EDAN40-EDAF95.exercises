@@ -19,7 +19,7 @@ This is a complementary resource to my [Notion notes database](https://mikaelrr.
 ---
 ## Usage
 > [!TIP]
-> Another way to use this repo is to create a fork, then remove all my solutions (either all at once, or as you go). Then you'll be left with test cases that, as long as you preserve my naming conventions, can be used to test your solutions as you go.
+> Another way to use this repo is to create a fork or branch, then remove all my solutions (either all at once, or as you go). Then you'll be left with test cases that, as long as you preserve my naming conventions, can be used to test your solutions as you go. If you desire you can submit it to me, and I'll figure out a way to display both mine and your solutions (for example creating seperate folder structures)
 
 ### Load module
 ```console
@@ -28,6 +28,8 @@ ghci
 GHCi, version 9.2.8: https://www.haskell.org/ghc/  :? for help
 ghci > :l file.hs
 ```
+Sometimes you may have to use ``stack ghci`` in place of ``ghci``, for example when using installed packages.
+
 After which you can run methods defined within the file.
 ### Testing
 Some modules have tests included, usually the solutions for the book.
