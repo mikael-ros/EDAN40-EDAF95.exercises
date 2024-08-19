@@ -6,35 +6,35 @@ Let's start with all the predicates. I'll reduce them as I go along. I'll write 
 
 ### and
 ```haskell
-    and2 a b = a && b
-    and2 = \a b -> (&&) a b -- move operators leftward and arguments rightward
-    and2 = (&&) -- remove both arguments
+and2 a b = a && b
+and2 = \a b -> (&&) a b -- move operators leftward and arguments rightward
+and2 = (&&) -- remove both arguments
 ```
 We can also define a patternmatched version like:
 ```haskell
-    and2' True b = b -- If first is True, b completely steers the result
-    and2' False _ = False -- If first is false, it doesn't matter what b is, it will be false
+and2' True b = b -- If first is True, b completely steers the result
+and2' False _ = False -- If first is false, it doesn't matter what b is, it will be false
 ```
 
 ### or
 Can simply be defined yet again as the operator ``(||)``, or:
 ```haskell
-    or2' True _ = True -- If first is true it will be true
-    or2' False b = b -- If first is false, then the value is determined by b
+or2' True _ = True -- If first is true it will be true
+or2' False b = b -- If first is false, then the value is determined by b
 ```
 
 ### nand
 As simple as ``(not .) . and2``, or:
 ```haskell
-    nand2' True b = not b
-    nand2' False _ = True
+nand2' True b = not b
+nand2' False _ = True
 ```
 
 ### nor
 As simple as ``(not .) . or2``, or:
 ```haskell
-    nor2' True _ = False
-    nor2' False b = not b
+nor2' True _ = False
+nor2' False b = not b
 ```
 
 ### xor
@@ -47,13 +47,13 @@ A XOR gate is only true if neither value is the same. We have a couple options:
 
 Option one will yield the basic ``xor2 = (/=)``, and option 2 will yield:
 ```haskell
-    xor2' a b = nor2 (nor2 a b) (and2 a b)
+xor2' a b = nor2 (nor2 a b) (and2 a b)
 ```
 option 3 yields:
 ```haskell
-    xor2'' True b = not b -- When the first value is True, the value is determined solely by the second, which will yield True when False, hence not b
-    xor2'' a False = a -- Same as below, but flipped
-    xor2'' False b = b -- If first value is false, then it is entirely determined by b
+xor2'' True b = not b -- When the first value is True, the value is determined solely by the second, which will yield True when False, hence not b
+xor2'' a False = a -- Same as below, but flipped
+xor2'' False b = b -- If first value is false, then it is entirely determined by b
 ```
 
 ### impl
@@ -79,9 +79,9 @@ This truth table makes more sense to me, I immediately see that we're essentiall
 |F|F|   T  |
 
 ```haskell
-    equ2' True b = b
-    equ2' a False = not a
-    equ2' False b = not b
+equ2' True b = b
+equ2' a False = not a
+equ2' False b = not b
 ```
 
 ### Truth table
@@ -91,7 +91,7 @@ Finally, if we want to present it like given we need to generate a string someho
 
 Install the ``lens`` package using:
 ```console
-    stack install lens
+stack install lens
 ```
 
 Then finally we get the result desired by using ``printTable2 <expression>``, where ``<expression>`` is a logical expression or function.

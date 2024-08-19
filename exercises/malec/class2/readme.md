@@ -24,12 +24,12 @@ We can start by defining some base cases, like a proposition of a single variabl
 
 For any other formula we have to assemble every combination, and check if all combinations evaluate to ``True``. Malec has chosen to do this by generating all value pairs of true and false, and creating tables from that to test with the ``truthValue`` function. This is equivalent to the cartesian product of all lists of all possible (2) combinations of each variable. This generates a structure like 
 ```haskell
-    [
-        [("variable", True), ("variable2", True)],
-        [("variable", True), ("variable2", False)],
-        [("variable", False), ("variable2", True)],
-        [("variable", False), ("variable2", False)],
-    ]
+[
+    [("variable", True), ("variable2", True)],
+    [("variable", True), ("variable2", False)],
+    [("variable", False), ("variable2", True)],
+    [("variable", False), ("variable2", False)],
+]
 ```
 That is, a truth table (without the evaluations).
 

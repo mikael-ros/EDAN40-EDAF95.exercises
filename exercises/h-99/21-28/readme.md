@@ -6,12 +6,12 @@ Should be as simple as concatenating ``take (n-1)`` with the inserted element an
 
 Let's also try to simplify it, and possibly also make it point-free:
 ```haskell
-    insertAt :: a -> [a] -> Int -> [a]
-    insertAt insert list at = take (pred at) list ++ insert:drop (pred at) list
+insertAt :: a -> [a] -> Int -> [a]
+insertAt insert list at = take (pred at) list ++ insert:drop (pred at) list
 
-    insertAt = \insert list at -> (++) (take (pred at) list) (insert:drop (pred at) list) -- move parameters into body, make operators functions
+insertAt = \insert list at -> (++) (take (pred at) list) (insert:drop (pred at) list) -- move parameters into body, make operators functions
 
-    insertAt = \insert list at -> (++) ((take . pred) at list) (insert:(drop  . pred) at list) -- compose take, drop with pred
+insertAt = \insert list at -> (++) ((take . pred) at list) (insert:(drop  . pred) at list) -- compose take, drop with pred
 ```
 And thats about as far as I can go with my ideas. I know it is possible to make it pointfree though. 
 
@@ -31,12 +31,12 @@ As per [this article](https://www.schoolofhaskell.com/school/starting-with-haske
 
 This will require importing:
 ```haskell
-    import System.Random (randomRIO)
-    import Control.Monad (replicateM)
+import System.Random (randomRIO)
+import Control.Monad (replicateM)
 ```
 and install ``System.Random`` using (in Stack):
 ```console
-    stack install random
+stack install random
 ```
 
 I'll be using do syntax, as we are in the realm of Monads now.
@@ -48,12 +48,12 @@ We can use our previous function, with a generated list of numbers passed to it.
 
 To use ``shuffleM``, you will need to import them using the following lines:
 ```haskell
-    import Control.Monad.Random
-    import System.Random.Shuffle
+import Control.Monad.Random
+import System.Random.Shuffle
 ```
 after installing ``System.Random.Shuffle`` by using (in Stack):
 ```console
-    stack install random-shuffle
+stack install random-shuffle
 ```
 
 You may have to run ``ghci`` as ``stack ghci`` to run it now, atleast I had to.
@@ -66,9 +66,9 @@ We can use the ``shuffleM`` function previously discovered to do this, in the sa
 For this to work we'll just pass the length of the list along with the list to the uniqueSelect function. This starts of as ``rndPermu list = uniqueSelect list length list``, but can be simplified like:
 
 ```haskell
-    rndPermu list = flip uniqueSelect length list list
-    rndPermu = flip uniqueSelect . length >>= id -- eliminate the double argument use, by "forwarding"
-    rndPermu = uniqueSelect <*> length -- hlint suggestion
+rndPermu list = flip uniqueSelect length list list
+rndPermu = flip uniqueSelect . length >>= id -- eliminate the double argument use, by "forwarding"
+rndPermu = uniqueSelect <*> length -- hlint suggestion
 ```
 
 The ``<*>`` in this instance is essentially forming ``uniqueSelect . length``, but to be honest I do not fully understand the concept of applicative functors yet...
@@ -102,8 +102,8 @@ We can use ``sortBy`` again, now supplying it with the length of the list filter
 
 This initially comes out as the unwieldly: 
 ```haskell
-    lfsort :: [[a]] -> [[a]]
-    lfsort list = sortBy (\x y -> compare (length (filter (\z -> length z == length x) list)) (length (filter (\z -> length z == length y) list))) list
+lfsort :: [[a]] -> [[a]]
+lfsort list = sortBy (\x y -> compare (length (filter (\z -> length z == length x) list)) (length (filter (\z -> length z == length y) list))) list
 ```
 So we can define a little helper function ``countSameLength``, at which point we get ``lfsort list = sortBy (\x y -> compare (countSameLength x list) (countSameLength y list)) list``
 

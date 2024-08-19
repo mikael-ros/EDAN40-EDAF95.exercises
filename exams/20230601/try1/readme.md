@@ -2,13 +2,13 @@
 ## 1
 ### ``the function f x y``
 ```haskell
-    f :: Fractional a => a -> a -> a
-    f x y = 5 / (x + y)
-    f' = \y -> (\x -> 5 / (x + y))          -- 1
-    f'' = \y -> (\x -> (/) 5 . (+) x $ y)   -- 2
-    f''' = \x -> (/) 5 . (+) x              -- 3
-    f'''' = \x -> (.) (5/) ((+) x)          -- 4
-    f''''' = (.) (5/) . (+)                 -- 5
+f :: Fractional a => a -> a -> a
+f x y = 5 / (x + y)
+f' = \y -> (\x -> 5 / (x + y))          -- 1
+f'' = \y -> (\x -> (/) 5 . (+) x $ y)   -- 2
+f''' = \x -> (/) 5 . (+) x              -- 3
+f'''' = \x -> (.) (5/) ((+) x)          -- 4
+f''''' = (.) (5/) . (+)                 -- 5
 ```
 1. Curry the function (move the arguments to the right hand side).
 2. Move operators over as if they are normal functions (which they are).
@@ -20,14 +20,14 @@
 ``y`` is in this case a function itself, with the type ``Integer -> Integer``. As it is applied to every element of the comprehension generator ``[x..]``, it is essentially equivalent to mapping ``y`` over that list, which can be our first "attack vector".
 
 ```haskell
-    g x y = [y z | z <- [x..]]
-    g' x y = map y [z | z <- [x..]]                     -- 1
-    g'' x y = map y (iterate (+1) x)                    -- 2
-    g''' x y = map y (iterate succ x)                   -- 3
-    g'''' = \x -> (\y -> map y (iterate succ x))        -- 4
-    g''''' = \x -> (\y -> flip map (iterate succ x) y)  -- 5
-    g'''''' = \x -> flip map (iterate succ x)           -- 6
-    g''''''' = flip map . iterate succ                  -- 7
+g x y = [y z | z <- [x..]]
+g' x y = map y [z | z <- [x..]]                     -- 1
+g'' x y = map y (iterate (+1) x)                    -- 2
+g''' x y = map y (iterate succ x)                   -- 3
+g'''' = \x -> (\y -> map y (iterate succ x))        -- 4
+g''''' = \x -> (\y -> flip map (iterate succ x) y)  -- 5
+g'''''' = \x -> flip map (iterate succ x)           -- 6
+g''''''' = flip map . iterate succ                  -- 7
 ```
 1. Move the y function out of the comprehension by using map, as suggested above.a
 2. Replace the now redundant generator. As it will generate [x, x+1, x+1+1,...], we can instead use ``iterate``.

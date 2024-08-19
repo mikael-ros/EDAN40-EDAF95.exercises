@@ -20,21 +20,21 @@ To clarify, this is ``!!``, but we start at index 1, not 0. Hence the simplest s
 
 We then get:
 ```haskell
-    elementAt :: [a] -> Int -> a
-    elementAt xs index = xs !! (index - 1) 
+elementAt :: [a] -> Int -> a
+elementAt xs index = xs !! (index - 1) 
 ```
 
 Which we can reduce like:
 ```haskell
-    elementAt' = \xs -> (\index -> xs !! (index - 1)) -- move arguments to right hand side
-    elementAt'' = \xs -> (\index -> (!!) xs ((-) index 1)) -- move operators left
-    elementAt''' = \xs -> (\index -> (!!) xs ((subtract 1) index)) -- replace with subtract, so we can move index right
-    elementAt'''' = \xs -> (\index -> ((!!) xs) ((subtract 1) index)) -- create partially applied function ((!!) xs)
-    elementAt''''' = \xs -> (\index -> (((!!) xs) . (subtract 1)) index) -- replace with composition
-    elementAt'''''' = \xs -> ((!!) xs) . (subtract 1) -- remove index, as it is no longer needed
+elementAt' = \xs -> (\index -> xs !! (index - 1)) -- move arguments to right hand side
+elementAt'' = \xs -> (\index -> (!!) xs ((-) index 1)) -- move operators left
+elementAt''' = \xs -> (\index -> (!!) xs ((subtract 1) index)) -- replace with subtract, so we can move index right
+elementAt'''' = \xs -> (\index -> ((!!) xs) ((subtract 1) index)) -- create partially applied function ((!!) xs)
+elementAt''''' = \xs -> (\index -> (((!!) xs) . (subtract 1)) index) -- replace with composition
+elementAt'''''' = \xs -> ((!!) xs) . (subtract 1) -- remove index, as it is no longer needed
 
-    -- finally, we get:
-    elementAt xs = (!!) xs . subtract 1
+-- finally, we get:
+elementAt xs = (!!) xs . subtract 1
 ```
 It is possible to go further with more advanced operators, but I do not understand them currently. There is another fully point free solution on the wiki as well.
 

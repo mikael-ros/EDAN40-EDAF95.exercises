@@ -7,8 +7,8 @@ We can similar to question 10 choose to do it in two ways. I'll simply import ``
 To cut down on bloat, I'll define a helper function ``createEncoding``, but you could also write the entire function inline like:
 
 ```haskell
-    encodeModified :: Eq a => [a] -> [Encoding a]
-    encodeModified = map (\l -> if length l > 1 then Multiple (length l) (head l) else Single (head l)) . pack
+encodeModified :: Eq a => [a] -> [Encoding a]
+encodeModified = map (\l -> if length l > 1 then Multiple (length l) (head l) else Single (head l)) . pack
 ```
 
 but I find ``encodeModified = map createEncoding . pack`` to be more elegant.
@@ -20,11 +20,11 @@ We can use the ``Prelude`` function ``replicate``, using the length encoded in t
 
 Initially I'll get something like
 ```haskell
-    decode = concat . map (\e -> replicate (fst (decodeEncoding e)) (snd (decodeEncoding e)))
+decode = concat . map (\e -> replicate (fst (decodeEncoding e)) (snd (decodeEncoding e)))
 ```
 which we can further reduce like:
 ```haskell
-    decode' = concatMap (\e -> replicate (fst (decodeEncoding e)) (snd (decodeEncoding e))) -- replace concat . map with concatMap
+decode' = concatMap (\e -> replicate (fst (decodeEncoding e)) (snd (decodeEncoding e))) -- replace concat . map with concatMap
 ```
 At which point hlint quickly suggests me to write it like ``decode = concatMap (uncurry replicate . decodeEncoding)``
 

@@ -45,10 +45,10 @@ This is similar, but opposite, to the function ``bin2int``, since the first argu
 
 We can analyze this, by computing it.
 ```
-    a*10^3 + b*10^2 + c*10 + d
-    = (a*10^2 + b*10 + c)*10 + d
-    = ((a*10 + b)*10 + c)*10 + d
-    = (((a)*10 + b)*10 + c)*10 + d
+a*10^3 + b*10^2 + c*10 + d
+= (a*10^2 + b*10 + c)*10 + d
+= ((a*10 + b)*10 + c)*10 + d
+= (((a)*10 + b)*10 + c)*10 + d
 ```
 Again, since the left part is the accumulator, we can say that the rule is ``10x + y``.
 

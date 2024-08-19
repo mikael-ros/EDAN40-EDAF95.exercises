@@ -7,14 +7,14 @@ The easiest way to "prove" this, is evaluating the rules one by one.
 
 For ``fmap id = id``:
 ```haskell
-    fmap id []
-    = []
+fmap id []
+= []
 ```
 and
 ```haskell
-    fmap id (x:xs)
-    = [id x] ++ (fmap id xs)
-    = x ++ ([id x2] ++ (fmap id x2s))
+fmap id (x:xs)
+= [id x] ++ (fmap id xs)
+= x ++ ([id x2] ++ (fmap id x2s))
 ```
 As we quickly see the list iterates through each element without changing it, reassembling the list in order as it goes on.
 
@@ -22,26 +22,26 @@ This matches the behaviour desired, as there is no change in the input to the ou
 
 For ``fmap (p . q) = (fmap p) . (fmap q)``:
 ```haskell
-    fmap (p . q) []
-    = []
+fmap (p . q) []
+= []
 
-    (fmap p) . (fmap q) []
-    = fmap p (fmap q [])
-    = [p $ q []] ++ []
-    = p []
-    = []
+(fmap p) . (fmap q) []
+= fmap p (fmap q [])
+= [p $ q []] ++ []
+= p []
+= []
 ```
 As we see, the behaviour will be equal for both sides, so they are in fact equal.
 And for:
 ```haskell
-    fmap (p . q) (x:xs) 
-    = [(p . q) x] ++ (fmap (p . q) xs)
-    = [p $ q x] ++ (fmap p (fmap q xs))
-    -- e.t.c.
+fmap (p . q) (x:xs) 
+= [(p . q) x] ++ (fmap (p . q) xs)
+= [p $ q x] ++ (fmap p (fmap q xs))
+-- e.t.c.
 
-    (fmap p) . (fmap q) (x:xs)
-    = fmap p (fmap q (x:xs))
-    = [p $ q x] ++ (fmap p (fmap q xs))
+(fmap p) . (fmap q) (x:xs)
+= fmap p (fmap q (x:xs))
+= [p $ q x] ++ (fmap p (fmap q xs))
 ```
 This also matches.
 
@@ -50,20 +50,20 @@ This also matches.
 We can define a type ``Node`` that consists of three branches that can either be leaves or another node. 
 
 ```haskell
-    data Tree = Leaf String | Node String Tree Tree Tree
+data Tree = Leaf String | Node String Tree Tree Tree
 ```
 
 ### (b) Generalize **
 ```haskell
-    data Tree t = Leaf t | Node t (Tree t) (Tree t) (Tree t)
+data Tree t = Leaf t | Node t (Tree t) (Tree t) (Tree t)
 ```
 
 ### (c) Make it a functor **
 To enable using ``fmap`` on a ``Tree``, we need to make it an instance of the ``Functor`` class.
 ```haskell
-    instance Functor Tree where
-        fmap f (Leaf x) = Leaf (f x)
-        fmap f (Node v t1 t2 t3) = Node (f v) (fmap f t1) (fmap f t2) (fmap f t3)
+instance Functor Tree where
+    fmap f (Leaf x) = Leaf (f x)
+    fmap f (Node v t1 t2 t3) = Node (f v) (fmap f t1) (fmap f t2) (fmap f t3)
 ```
 
 ### (d) Implement ``==``

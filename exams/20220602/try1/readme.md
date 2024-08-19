@@ -36,14 +36,14 @@ In summary, we then have ``Maybe [a]`` -> ``Maybe b``.
 ## 2 Proving program properties
 Let's first check if ``fmap id = id``.
 ```haskell 
-    fmap id (Right x) 
-    = Right (id x)
-    = Right x
+fmap id (Right x) 
+= Right (id x)
+= Right x
 ```
 This checks out, let's check the other definition.
 ```haskell
-    fmap id (Left x) 
-    = Left x
+fmap id (Left x) 
+= Left x
 ```
 This also checks out.
 
@@ -63,8 +63,8 @@ As understood an ``Image`` is here essentially one pixel, and the ``paste`` func
 The full type of ``Region`` is ``Position -> Boolean``, which is ``(Float, Float) -> Boolean``. This means an argument is missing, a position. We'll call this ``pos``, and we'll collect it as a lambda argument.
 
 ```haskell
-    paste :: Region -> Image a -> Image a -> Image a
-    paste reg im1 im2 = (\pos -> if (reg pos) then (im1 pos) else (im2 pos))
+paste :: Region -> Image a -> Image a -> Image a
+paste reg im1 im2 = (\pos -> if (reg pos) then (im1 pos) else (im2 pos))
 ```
 >> Correct. + 0.4p (= 2.1p) **
 ### (b) Implement ``lift``
@@ -72,20 +72,20 @@ Remember that we yet again miss the argument ``pos``.
 
 ``lift0`` just creates an ``Image`` of a type ``a``. This is simply:
 ```haskell
-    lift0 :: a -> Image a
-    lift0 a = (\pos -> a)
+lift0 :: a -> Image a
+lift0 a = (\pos -> a)
 ```
 
 ``lift1`` turns an ``Image`` with the type ``a`` to one of type ``b``, by applying a function on it.
 ```haskell
-    lift1 :: (a -> b) -> Image a -> Image b
-    lift1 f im = (\pos -> f (im pos))
+lift1 :: (a -> b) -> Image a -> Image b
+lift1 f im = (\pos -> f (im pos))
 ```
 
 ``lift2`` takes images of different types and creates a new image with some other type ``c``.
 ```haskell
-    lift2 :: (a -> b -> c) -> Image a -> Image b -> Image c
-    lift2 f im1 im2 = (\pos -> f (im1 pos) (im2 pos))
+lift2 :: (a -> b -> c) -> Image a -> Image b -> Image c
+lift2 f im1 im2 = (\pos -> f (im1 pos) (im2 pos))
 ```
 >> Correct. + 0.4p (= 2.5p) **
 ### (c) Infix image operator ``-``
