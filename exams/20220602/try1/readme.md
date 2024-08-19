@@ -1,4 +1,4 @@
-# [Exam 2022-06-02](https://fileadmin.cs.lth.se/cs/Education/EDAN40/exams/edan40_220602.pdf)
+# [Exam 2022-06-02](https://fileadmin.cs.lth.se/cs/Education/EDAN40/exams/edan40_220602.pdf) - attempted 2024-08-13
 ## 1
 ### (a) Find the type of ``reduce``
 If ``reduce`` is of the type ``a -> a``, then whatever follows it must also return the type ``a``, as per composition rules. ``reduce`` itself will return the same type as the input type, so we don't need to worry about it.
@@ -103,7 +103,7 @@ The argument ``k`` is allowed, then, to be a ``Maybe``, but there is no specific
 ---
 
 ### With assistance (**)
-Total 3.7p out of 6p possible points. Not sure what this equates to on the grading scale. Maybe just scraping past passing? We'll say **``3``**, lol.
+Total 3.7p out of 6p possible points. Not sure what this equates to on the grading scale. Maybe just scraping past passing? We'll say grade **``3``**, lol.
 
 ### Without assistance
 If removing points from tasks where I had to jog my mind with other resources that would not have been available during a real exam (marked with **), I would have a total of 2.7p, which is not satisfactory - improvement is needed!

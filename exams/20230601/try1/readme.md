@@ -1,4 +1,4 @@
-# [Exam 2023-06-01](https://fileadmin.cs.lth.se/cs/Education/EDAN40/exams/edan40_230601.pdf)
+# [Exam 2023-06-01](https://fileadmin.cs.lth.se/cs/Education/EDAN40/exams/edan40_230601.pdf) - attempted in may 2024
 ## 1
 ### ``the function f x y``
 ```haskell

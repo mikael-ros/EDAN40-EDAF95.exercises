@@ -1,6 +1,6 @@
 > This attempt is a throwaway. It went horribly, so ignore this. 
 ---
-# [Exam 2019-06-03](https://fileadmin.cs.lth.se/cs/Education/EDAN40/exams/edan40_190603.pdf)
+# [Exam 2019-06-03](https://fileadmin.cs.lth.se/cs/Education/EDAN40/exams/edan40_190603.pdf) - attempted 2024-08-14
 ## 1
 ### Prove the instance of Functor
 The easiest way to "prove" this, is evaluating the rules one by one.
