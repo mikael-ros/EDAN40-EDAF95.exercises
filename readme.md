@@ -1,5 +1,9 @@
 # EDAN40/EDAF95 Exercises
 
+> [!NOTE]
+> I have now completed my exam (waiting for a grade). With some naive certainty, I think this will be it. (crossing fingers)
+> Do feel free to continue my work. If not, I hope this proves to be a useful resource despite being incomplete. Perhaps I might do some more exercises if I feel like it (<-- look at this guy)
+
 In this repo you will find solutions to the exercises given by the book Programming in Haskell Second Edition as part of the course literature* recommended by the course [EDAN40](https://cs.lth.se/edan40)** at Lunds Tekniska Högskola, as well as handpicked exercises from the lecturer and solutions for past exams. Some of these are common to the course [EDAF95](https://cs.lth.se/edaf95). Additionally, you will also find solutions to [H-99: Ninety-Nine Haskell Problems](https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems), from the [Haskell wiki](https://wiki.haskell.org), as they were around August 2024 (specific dates given for each section), and some random experiments.
 
 For the classes, under the folder [``exercises/malec``](exercises/malec), and the exams, under the folder [``exams``](exams), there are also solutions on the official page.  Similarly, there might also be more information on those exercises under their original sources, as this years lecturer Jacek Malec based the exercises on a compilation of original sources, listed in the corresponding classes. For the 2020 exam specifically, I have also provided an exam sheet (extracted from the solutions file), as Malec did not provide one himself. I will also not attempt any exam that there are no solutions provided for, as I wouldn't be able to properly "grade" myself.
