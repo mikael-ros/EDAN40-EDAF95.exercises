@@ -1,8 +1,8 @@
 # EDAN40/EDAF95 Exercises
 
 > [!NOTE]
-> I have now completed my exam (waiting for a grade). With some naive certainty, I think this will be it. (crossing fingers)
-> Do feel free to continue my work. If not, I hope this proves to be a useful resource despite being incomplete. Perhaps I might do some more exercises if I feel like it (<-- look at this guy)
+> I have completed and passed this course.
+> Do feel free to continue my work. If not, I hope this proves to be a useful resource despite being incomplete. 
 
 In this repo you will find solutions to the exercises given by the book Programming in Haskell Second Edition as part of the course literature* recommended by the course [EDAN40](https://cs.lth.se/edan40)** at Lunds Tekniska Högskola, as well as handpicked exercises from the lecturer and solutions for past exams. Some of these are common to the course [EDAF95](https://cs.lth.se/edaf95). Additionally, you will also find solutions to [H-99: Ninety-Nine Haskell Problems](https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems), from the [Haskell wiki](https://wiki.haskell.org), as they were around August 2024 (specific dates given for each section), and some random experiments.
 
